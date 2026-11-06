@@ -1,0 +1,24 @@
+{
+  "name": "marble-wall-game",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "setup": "node scripts/setup.mjs",
+    "db:start": "node scripts/database.mjs start",
+    "db:stop": "node scripts/database.mjs stop",
+    "test": "node --test tests/*.test.mjs",
+    "test:e2e": "playwright test",
+    "dev": "concurrently --kill-others \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build": "npm run build --prefix client",
+    "start": "docker compose up -d --build --wait",
+    "stop": "docker compose down",
+    "docker:logs": "docker compose logs -f --tail=100",
+    "docker:status": "docker compose ps"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "concurrently": "^9.1.2",
+    "embedded-postgres": "^16.14.0-beta.17"
+  }
+}

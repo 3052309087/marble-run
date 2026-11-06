@@ -1,0 +1,9 @@
+node_modules/
+client/dist/
+server/.env
+.env
+.env.*
+!.env.example
+.local/
+.artifacts/
+*.log
